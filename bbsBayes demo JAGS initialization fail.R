@@ -69,6 +69,19 @@ mod = "slopeSimple.txt"
 ### this is a trimmed-down version of the model used to produce population status and trend estimates from the BBS
 ### by the CWS and the United States Geological Survey: https://doi.org/10.1525/auk.2010.09220
 
+
+
+#unload.module("glm") #it's not initially loaded, but this provides a way to reverse the load.module line below.
+#### this approach will initialize, if the glm module is not loaded
+t1 = Sys.time()
+rj1 = jags.model(file = mod,
+                 data = rjags_data,
+                 n.chains = 3,
+                 n.adapt = 1000)
+Sys.time()-t1
+
+
+########### once we load the glm module, it fails to initialize
 load.module("glm")
 t1 = Sys.time()
 rj1 = jags.model(file = mod,
