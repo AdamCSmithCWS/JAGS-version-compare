@@ -9,6 +9,9 @@ As I know of no way to specify a JAGS version through rjags, or any of the other
 
 I've packaged up an RData file that contains sufficient data to demonstrate the problem (Wood Thrush data from 2000 - 2018), but alternative datasets are available using the commented-out sections 0 - 2 of the main script. One can choose different species and extend the time-series if desired.
 
+# UPDATE - possible partial solution
+
+The problem may be related to the "glm" sampler module in JAGS 4.3. If the model is run without loading the glm sampler, the model initilizes.
 
 
 
